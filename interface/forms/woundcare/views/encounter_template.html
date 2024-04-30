@@ -1,0 +1,880 @@
+
+<!doctype html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <title>Wound Care</title>
+
+    <style>
+        body{
+            background-color: #F5F5F5;
+        }
+        .header-start{
+            background-image: linear-gradient(to right, #22B6A8, #5DBDCE);
+            color: #fff;
+            padding-top: 2%;
+            padding-bottom: 2%;
+        }
+        .header-left{
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .brand p{
+            font-size: 24px;
+            font-weight: 600;
+        }
+        .brand-save{
+            display: flex;
+            font-size: 18px;
+        }
+        .fa-cloud-upload{
+            font-size: 32px;
+        }
+        .header-right{
+            display: flex;
+            justify-content: right;
+        }
+        .header-profile{
+            display: flex;
+            font-size: 24px;
+        }
+        .header-icon{
+            font-size: 24px;
+        }
+        .date-left{
+            padding-left: 22%;
+            padding-top: 5%;
+        }
+        .date-left p{
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .date-right{
+            text-align: right;
+            padding-right: 22%;
+            padding-top: 11%;
+        }
+        .btn-ann{
+            background-image: linear-gradient(to right, #22B6A8, #5DBDCE);
+            color: white;
+            border: none;
+            padding: 11px;
+            border-radius: 10px;
+            margin-left: -4%;
+            position: relative;
+            z-index: -1;
+            padding-left: 4%;
+        }
+        .btn-pc{
+            background-image: linear-gradient(to right, #22B6A8, #5DBDCE);
+            color: white;
+            border: none;
+            padding: 11px;
+            border-radius: 10px;
+            width: 35%;
+        }
+        .main-heading-patient{
+            display: flex;
+        }
+        .main-heading-patient p{
+            font-size: 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .patient-name-area{
+            background: white;
+            margin: 5% 10%;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            border-radius: 50px;
+            padding-top:3%;
+            padding-bottom: 3%;
+        }
+        .patient-area-start{
+            padding: 2% 5%;
+        }
+        .form-fields-area{
+            padding: 0 3%;
+        }
+        label{
+            font-size: 20px;
+            font-weight: 500;
+        }
+        .location-area{
+            background-image: linear-gradient(to right, #5DBDCE, #22B6A8);
+            color: white;
+            margin-left: 4%;
+            margin-right: auto;
+            border-radius: 5px;
+            padding: 2% 3%;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .custom-radio .custom-control-input:checked~.custom-control-label::before {
+            background-color: #000;
+        }
+        .fa-caret-right{
+            font-size:22px;
+            padding-right: 2%;
+        }
+        th{
+            background-color: #55BDC9;
+            color:white;
+        }
+        .button-area{
+            display: flex;
+            margin: 3% 10%;
+        }
+        .btn-save{
+            background-image: linear-gradient(to right, #22B6A8, #5DBDCE);
+            width: 100%;
+            padding-top: 5%;
+            padding-bottom: 5%;
+            border: none;
+            border-radius: 20px;
+            color:white;
+            font-weight: 600;
+            font-size:18px;
+        }
+        .btn-cancel{
+            border: 3px solid #22B6A8;
+            width: 100%;
+            padding-top: 5%;
+            padding-bottom: 5%;
+            border-radius: 20px;
+            color:#22B6A8;
+            font-weight: 600;
+            font-size:18px;
+        }
+        .footer-start{
+            background-image: linear-gradient(to right, #22B6A8, #5DBDCE);
+            color: #fff;
+            padding-top: 2%;
+            padding-bottom: 2%;
+        }
+        .copyright{
+            background-color: white;
+            color: #22B6A8;
+            padding-left: 6px;
+            padding-right: 6px;
+            border-radius: 50px;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- ========================================= Start Medical Information Section ============================================-->
+<section>
+    <div class="patient-name-area">
+        <div class="col-md-12">
+            <div class="patient-area-start">
+                <div class="main-heading-patient">
+                    <p>Medical Information</p>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-fields-area">
+                    <div class="col-md-12 mt-2 d-flex wrap-field"></div>
+                    <div class="medical-field-area">
+                        <label class="physical_label">HPI</label>
+                        <p class="form-control">{wc_hpi}</p>
+                    </div>
+                    <div class="medical-field-area">
+                        <!-- the text needs to be escaped -->
+                        <label class="physical_label">Current Medication</label>
+                        <p class="form-control">{wc_current_medication}</p>
+                    </div>
+                    
+
+
+                    <div class="medical-field-area">
+                        <label  class="physical_label">Medical History</label>
+                        <p class="form-control">{medical_history}</p>
+                    </div>
+
+                    <div class="medical-field-area">
+                        <label class="physical_label">Allergies/Intolerance</label>
+                        <p class="form-control">{wc_allergies}</p>
+                    </div>
+
+                    <div class="medical-field-area">
+                        <label class="physical_label">Surgical History/Hospitalization</label>
+                        <p class="form-control">{wc_surgical_history}</p>
+                    </div>
+
+                    <div class="medical-field-area">
+                        <label class="physical_label">Social History</label>
+                        <p class="form-control">{wc_social}</p>
+                    </div>
+
+                    <div class="medical-field-area">
+                        <label class="physical_label">Family History</label>
+                        <p class="form-control">{wc_family}</p>
+                    </div>
+
+                    <div class="medical-field-area">
+                        <label class="physical_label">ROS</label>
+                        <p class="form-control">{wc_ros}</p>
+                    
+                    </div>
+                </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ========================================= End Medical Information Section ============================================-->
+
+<!-- ========================================= Start Physical Exam Section ============================================-->
+<section>
+    <div class="patient-name-area">
+        <div class="col-md-12">
+            <div class="patient-area-start">
+                <div class="main-heading-patient">
+                    <p>Physical Exam</p>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-fields-area d-flex">
+                    <div class="col-md-3">
+                        <label class="physical_label">Vitals: </label>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label class="physical_label">T:</label>
+                        <p class="form-control">{wc_t}</p>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label class="physical_label">P:</label>
+                        <p class="form-control">{wc_p}</p>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label class="physical_label">HR:</label>
+                        <p class="form-control">{wc_hr}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-fields-area d-flex">
+                    <div class="col-md-3">
+                        <label class="physical_label">Systolic:</label>
+                        <p class="form-control">{wc_systolic}</p>
+                 <hr>
+                 <label class="physical_label">Diastolic:</label>
+                 <p class="form-control">{wc_diastolic}</p>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="physical_label">HT:</label>
+                        <p class="form-control">{wc_ht}</p>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label class="physical_label">WT:</label>
+                        <p class="form-control">{wc_wt}</p>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label class="physical_label">BMI:</label>
+                        <p class="form-control">{wc_bmi}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-fields-area">
+                    <div class="col-md-12 mt-2 d-flex wrap-field"></div>
+                    <div class="medical-field-area">
+                        <label class="physical_label">General:</label>
+                        <p class="form-control">{wc_general}</p>
+                    </div>
+
+                    <div class="medical-field-area3">
+                        <!-- the text needs to be escaped -->
+                        <label class="physical_label">Head:</label>
+                        <p class="form-control">{wc_head}</p>
+                    </div>
+
+                    <div class="medical-field-area">
+                        <label class="physical_label">Ears:</label>
+                        <p class="form-control">{wc_eyes}</p>
+                    </div>
+
+                    <div class="medical-field-area">
+                        <label class="physical_label">Eyes:</label>
+                        <p class="form-control">{wc_ears}</p>
+                    </div>
+
+                    <div class="medical-field-area">
+                        <label class="physical_label">Nose:</label>
+                        <p class="form-control">{wc_nose}</p>
+                    </div>
+
+                    <div class="medical-field-area">
+                        <label class="physical_label">Throat/Oral Cavity:</label>
+                        <p class="form-control">{wc_oral}</p>
+                    </div>
+
+                    <div class="medical-field-area">
+                        <label class="physical_label">Neck/Thyroid:</label>
+                        <p class="form-control">{wc_neck}</p>
+                    </div>
+
+                    <div class="medical-field-area">
+                        <label class="physical_label">Heart:</label>
+                        <p class="form-control">{wc_heart}</p>
+                    
+                    </div>
+                    <div class="medical-field-area">
+                        <label class="physical_label">Lungs:</label>
+                        <p class="form-control">{wc_lungs}</p>
+                    
+                    </div>
+                    <div class="medical-field-area">
+                        <label class="physical_label">Abdomen:</label>
+                        <p class="form-control">{wc_abdomen}</p>
+                    
+                    </div>
+                    <div class="medical-field-area">
+                        <label class="physical_label">Back:</label>
+                        <p class="form-control">{wc_back}</p>
+                    
+                    </div>
+                    <div class="medical-field-area">
+                        <label class="physical_label">Extremities:</label>
+                        <p class="form-control">{wc_extremities}</p>
+                    
+                    </div>
+                    <div class="medical-field-area">
+                        <label class="physical_label">Skin:</label>
+                        <p class="form-control">{wc_skin}</p>
+                    
+                    </div>
+                    <div class="medical-field-area">
+                        <label class="physical_label">Pelvic:</label>
+                        <p class="form-control">{wc_pelvic}</p>
+                    
+                    </div>
+                    <div class="medical-field-area">
+                        <label class="physical_label">Breast:</label>
+                        <p class="form-control">{wc_breast}</p>
+                    
+                    </div>
+                    <div class="medical-field-area">
+                        <label class="physical_label">Genitourinary:</label>
+                        <p class="form-control">{wc_genitourinary}</p>
+                    
+                    </div>
+                    <div class="medical-field-area">
+                        <label class="physical_label">Neurologic:</label>
+                        <p class="form-control">{wc_neurologic}</p>
+                    
+                    </div>
+                    <div class="medical-field-area">
+                        <label class="physical_label">Musculoskeletal:</label>
+                        <p class="form-control">{wc_musculoskeletal}</p>
+                    
+                    </div>
+                    </div>
+                    
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ========================================= End Physical Exam Section ============================================-->
+
+<!-- ========================================= Start Wound Description Section ============================================-->
+<section>
+    <div class="patient-name-area">
+        <div class="col-md-12">
+            <div class="patient-area-start">
+                <div class="main-heading-patient">
+                    <p>Wound Description</p>
+                    <i class="fa fa-pencil pl-2 pt-2" aria-hidden="true" style="color: #5DBDCE;"></i>
+                </div>
+            </div>
+
+            <div class="location-area">
+                <p>Location #1</p>
+            </div>
+            <div class="col-md-12">
+                <div class="form-fields-area d-flex">
+                    <div class="col-md-3">
+                        <p>Side</p>
+                        <p>Option</p>
+                    </div>
+
+                    <div class="col-md-3">
+                        <p>Anatomical Action</p>
+                        <p>Option</p>
+                    </div>
+
+                    <div class="col-md-3">
+                        <p>Location</p>
+                        <p>Option</p>
+                    </div>
+
+                    <div class="col-md-3">
+                        <!-- <label>HR:</label>
+                        <p>xxx</p> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-fields-area d-flex">
+                    <div class="col-md-6">
+                        <p>Wound Type</p>
+                        <p>Option</p>
+                    </div>
+
+                    <div class="col-md-6">
+                        <p>Wound Thickness or Wagner</p>
+                        <p>Option</p>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="col-md-12">
+                <div class="form-fields-area d-flex">
+                    <div class="col-md-4">
+                        <p>Drainage Amount</p>
+                        <p>Option</p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <p>Drainage Description</p>
+                        <p>Option</p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <p>Debrided/Surgically Created</p>
+                        <p>Option</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-fields-area d-flex">
+                    <div class="col-md-4">
+                        <p>Undermining</p>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-8">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input" checked>
+                                        <p class="custom-control-label" for="customRadioInline1">Yes</p>
+                                    </div>
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+                                        <p class="custom-control-label" for="customRadioInline2">No</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="clock.PNG" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <p>Tunneling</p>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-8">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input" >
+                                        <p class="custom-control-label" for="customRadioInline1">Yes</p>
+                                    </div>
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+                                        <p class="custom-control-label" for="customRadioInline2">No</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="clock.PNG" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <p>Ordo</p>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-8">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+                                        <p class="custom-control-label" for="customRadioInline1">Yes</p>
+                                    </div>
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+                                        <p class="custom-control-label" for="customRadioInline2">No</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="col-md-12">
+                <div class="form-fields-area d-flex">
+                    <div class="col-md-10">
+                        <div class="d-flex">
+                            <i class="fa fa-caret-right"></i>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea eius ratione corrupti, praesentium voluptates harum numquam autem quia dolorum magni totam ducimus id, eum nihil officiis! Molestias hic eius quos!</p>
+                        </div>
+                        <span class="pl-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea eius ratione corrupti</span>
+                    </div>
+
+                    <div class="col-md-2">
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+                            <p class="custom-control-label" for="customRadioInline1">Yes</p>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+                            <p class="custom-control-label" for="customRadioInline2">No</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-12 mt-3">
+                <div class="form-fields-area d-flex">
+                    <div class="col-md-10">
+                        <div class="d-flex">
+                            <i class="fa fa-caret-right"></i>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea eius ratione corrupti, praesentium voluptates harum numquam autem quia dolorum magni totam ducimus id, eum nihil officiis! Molestias hic eius quos!</p>
+                        </div>
+                        <span class="pl-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea eius ratione corrupti</span>
+                    </div>
+
+                    <div class="col-md-2">
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+                            <p class="custom-control-label" for="customRadioInline1">Yes</p>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+                            <p class="custom-control-label" for="customRadioInline2">No</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-12 mt-4">
+                <h5 class="pl-5">Dimension</h5>
+                <div class="form-fields-area d-flex">
+                    <div class="col-md-3">
+                        <p>Length</p>
+                        <p>xx cm</p>
+                    </div>
+
+                    <div class="col-md-3">
+                        <p>Width</p>
+                        <p>xx cm</p>
+                    </div>
+
+                    <div class="col-md-3">
+                        <p>Depth (option)</p>
+                        <p>xx cm</p>
+                    </div>
+                    <div class="col-md-3">
+                        <p>Surface Area</p>
+                        <p>xx cm</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-12 mt-4">
+                <h5 class="pl-5">IMAGE</h5>
+                <div class="form-fields-area d-flex">
+                    <img src="rash.PNG" alt="">
+                </div>
+                <input type="text" class="form-control" style="width: 17%; margin-left: 3%; background: #c9c9c9; height: 23px;">
+                <input type="text" class="form-control" style="width: 17%; margin-left: 3%; background: #c9c9c9; height: 18px; margin-top: 3%;">
+            </div>
+
+            <div class="col-md-12 mt-4">
+                <h5 class="pl-5">ASSESSMENT</h5>
+                <div class="form-fields-area d-flex">
+                    <p>ICD-10 Diagnosis Code</p>
+
+                </div>
+                <input type="text" class="form-control" style="width: 17%; margin-left: 3%; background: #c9c9c9; height: 23px;">
+                <p class="px-4 py-2">Statics UIcer L98.30</p>
+            </div>
+            <div class="form-fields-area d-flex">
+                <p>Plan:</p>
+                <input type="text" class="form-control" style="margin-left: 3%; background: #c9c9c9; height: 23px;">
+            </div>
+            <div class="form-fields-area d-flex">
+                <p>Medication:</p>
+                <input type="text" class="form-control" style="margin-left: 3%; background: #c9c9c9; height: 23px;">
+            </div>
+
+            <div class="col-md-12 mt-4">
+                <h5 class="pl-5">Treatment #1</h5>
+                <div class="form-fields-area d-flex">
+                    <div class="col-md-6">
+                        <p>Treatment Type</p>
+                        <input type="text" class="form-control" style="background: #c9c9c9; height: 23px;">
+                    </div>
+                    <div class="col-md-6">
+                        <p>Treatment #</p>
+                        <input type="text" class="form-control" style="background: #c9c9c9; height: 23px;">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-12 mt-4">
+
+                <div class="form-fields-area d-flex">
+                    <div class="col-md-4">
+                        <p>Quantity</p>
+                        <input type="text" class="form-control" style="background: #c9c9c9; height: 23px;">
+                    </div>
+                    <div class="col-md-4">
+                        <p>Formulation-Strength</p>
+                        <input type="text" class="form-control" style="background: #c9c9c9; height: 23px;">
+                    </div>
+                    <div class="col-md-4">
+                        <p>Form</p>
+                        <input type="text" class="form-control" style="background: #c9c9c9; height: 23px;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 mt-4">
+                <p class="pl-5">Procedure Notes</p>
+                <textarea class="ml-5" rows="10" cols="125"></textarea>
+            </div>
+
+            <div class="col-md-12 mt-4">
+
+                <div class="form-fields-area d-flex">
+                    <h1>Additional Notes:</h1>
+                    <input type="text" class="form-control mt-3" style="width:60%; margin-left: 3%; background: #c9c9c9; height: 23px;">
+                </div>
+            </div>
+
+            <div class="col-md-12 mt-4">
+
+                <div class="form-fields-area d-flex">
+                    <div class="col-md-4">
+                        <p>CPT Code</p>
+                        <input type="text" class="form-control" style="background: #c9c9c9; height: 23px;">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========================================= End Wound Description Section ============================================-->
+
+<!-- ========================================= Start Add Cart Section ============================================-->
+<section>
+    <div class="patient-name-area">
+        <div class="col-md-12">
+            <div class="patient-area-start">
+                <div class="main-heading-patient">
+                    <p>Add Card</p>
+                    <i class="fa fa-pencil pl-2 pt-2" aria-hidden="true" style="color: #5DBDCE;"></i>
+                </div>
+            </div>
+            <div class="col-md-12 mt-4">
+
+                <div class="form-fields-area d-flex">
+                    <div class="col-md-4">
+                        <p>Speciality</p>
+                        <div class="dropdown">
+                            <button class="btn btn-secondary-outline dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                    style="box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px; background: white;">
+                                Choose an Option
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Option</a>
+                                <a class="dropdown-item" href="#">Option</a>
+                                <a class="dropdown-item" href="#">Option</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <p>Speciality</p>
+                        <input type="text" class="form-control" placeholder="Name" style="border:none; box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px; background: white;">
+                    </div>
+                    <div class="col-md-2">
+                        <i class="fa fa-plus" style="margin: 30%;
+                   background-image: linear-gradient(to right, #22B6A8, #5DBDCE);
+                   padding: 5%; border-radius: 50px; color: white; font-size: 20px;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========================================= End Add Card Section ============================================-->
+
+<!-- ========================================= Start Billing Information Section ============================================-->
+<section>
+    <div class="patient-name-area">
+        <div class="col-md-12">
+            <div class="patient-area-start">
+                <div class="main-heading-patient">
+                    <p>Billing Information</p>
+                    <i class="fa fa-pencil pl-2 pt-2" aria-hidden="true" style="color: #5DBDCE;"></i>
+                </div>
+            </div>
+
+            <div class="col-md-12 mt-4">
+                <h4 class="pl-5" style="color:#55BDC9;">ICD</h4>
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">P</th>
+                        <th scope="col">Code</th>
+                        <th scope="col">Diagnosis</th>
+                        <th scope="col">Notes</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>x</td>
+                        <td>L02.2</td>
+                        <td>Chronic Ulcer</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>x</td>
+                        <td>L02.2</td>
+                        <td>Chronic Ulcer</td>
+                        <td></td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-md-12 mt-4">
+                <h4 class="pl-5" style="color:#55BDC9;">CPT</h4>
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th scope="col">CPT</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Units</th>
+                        <th scope="col">M1</th>
+                        <th scope="col">M2</th>
+                        <th scope="col">M3</th>
+                        <th scope="col">M4</th>
+                        <th scope="col">ICD1</th>
+                        <th scope="col">ICD2</th>
+                        <th scope="col">ICD3</th>
+                        <th scope="col">ICD4</th>
+                        <th scope="col">Notes</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>91391</td>
+                        <td>Wound Debridment</td>
+                        <td>1.00</td>
+                        <td>79</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>L02.2</td>
+                        <td>L73.9</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========================================= End Billing Information Section ============================================-->
+
+<!-- ========================================= Start E Prescribed Information Section ============================================-->
+<section>
+    <div class="patient-name-area">
+        <div class="col-md-12">
+            <div class="patient-area-start">
+                <div class="main-heading-patient">
+                    <p>E Prescribed Information</p>
+                    <i class="fa fa-pencil pl-2 pt-2" aria-hidden="true" style="color: #5DBDCE;"></i>
+                </div>
+            </div>
+
+            <div class="col-md-12 mt-4">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th scope="col">Rx</th>
+                        <th scope="col">Pharmacy</th>
+                        <th scope="col">Dispense, Duration, fill</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Keflix (500mg) twice a day</td>
+                        <td>Walgreen, 123 Harbor St</td>
+                        <td>Bid, #30 days, 2 refills</td>
+                        <td>Sent</td>
+
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========================================= End E Prescribed Information Section ============================================-->
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

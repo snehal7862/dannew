@@ -1,0 +1,24 @@
+{
+    "name": "juggernautsei/woundcare-form",
+    "description": "Dan wound care form build",
+    "type": "openemr-form",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Sherwin",
+            "email": "sherwingaddis@gmail.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Pushpak",
+            "email": "pushpak@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {"WoundCare\\": "src/"}
+    },
+  "require": {
+    "ext-json": "*"
+  }
+}

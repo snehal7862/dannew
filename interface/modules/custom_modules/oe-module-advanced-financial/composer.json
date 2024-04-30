@@ -1,0 +1,37 @@
+{
+    "name": "vendor_name/oe-module-advanced-financial",
+    "description": "Advanced Financial Analytics via Juggernaut Systems Express",
+    "type": "openemr-module",
+    "minimum-stability": "stable",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Sherwin",
+            "email": "sherwingaddis@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "keywords": ["openemr", "openemr-module"],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {"Juggernaut\\Module\\AdvancedFinancial\\": "src/"}
+    },
+    "require": {
+        "openemr/oe-module-installer-plugin": "^0.1.0",
+        "symfony/event-dispatcher": "^4.4.0",
+        "symfony/routing": "^5.4",
+        "symfony/http-foundation": "^5.4",
+        "symfony/yaml": "^5.4",
+        "symfony/config": "^5.4",
+        "nyholm/psr7": "^1.4",
+        "phplot/phplot": "@stable"
+    },
+    "conflict": {
+        "openemr/openemr": "<6.0.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "openemr/oe-module-installer-plugin": true
+        }
+    }
+}
